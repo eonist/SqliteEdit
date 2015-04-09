@@ -1,6 +1,6 @@
 # Pilot
 
-### What is Piliot:
+### What is Pilot:
 Piliot is a very simple .application that can read and edit SQLite database files (.db) in a wizard like dialog
 
 ### How it works:
