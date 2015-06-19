@@ -37,7 +37,7 @@ script MainDialog
 		set the_action to choose from list {"Create", "Read", "Update", "Delete"} with title "" with prompt "Actions:" default items {_last_selected_action} cancel button name "Exit"
 		handle_action_choice(the_action)
 	end show
-	--
+	--if the last used db file is non existing, then choose or create one
 	on promt_config_dialog()
 		set the_choice to choose from list {"Choose database", "Create new database"} with title "" with prompt "Actions:" default items {"Choose database"} cancel button name "exit"
 		if the_choice is false then --exit
