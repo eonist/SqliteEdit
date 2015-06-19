@@ -14,10 +14,10 @@ Piliot is a very simple .application that can read and edit SQLite database file
 - You can also drag and drop a .db file on to the pilot.app icon and then this database will be opened
 
 ### Why applescript:
-The choice to use AppleScript as the primary app language was so that the app could be edited by other users very easily. AppleScript requires no requists to learn and is installed on every mac since 1995, Also the means to code in applescript is provided on all MacÂ´s that you can lay your hands on. So its very accessable and very easy to learn. And requires no external libraries, frequent updates etc. A kid can easily pick up Applscript durning a weekend.
+The choice to use AppleScript as the primary app language was so that the app could be edited by other users very easily. AppleScript requires no requists to learn and is installed on every mac since 1995, Also the means to code in applescript is provided on all Mac´s that you can lay your hands on. So its very accessable and very easy to learn. And requires no external libraries, frequent updates etc. A kid can easily pick up Applscript durning a weekend.
 
 ### How can users edit the app:
-All libraries used in the Pilot app, mainly SQLite libs, String manipulation libs, List and Number libs are contained within the app. If you want to edit the app you will have to download these .scpt files and add theme to you local user script folder in your user folder user/scripts/â€œfolder with Pilot scpt filesâ€
+All libraries used in the Pilot app, mainly SQLite libs, String manipulation libs, List and Number libs are contained within the app. If you want to edit the app you will have to download these .scpt files and add theme to you local user script folder in your user folder user/scripts/folder with Pilot scpt files
 
 ### Opensource (copyrights)
 The app is completly free to use and edit as you wish, the only restriction that exists is that you cant sell or distribute the app and its libraries as your own. You may distribute the app withouth profits to other users if its heavily marked and references the Original Auther. Contact me directly for guidelines on this. The .db files it creates is your own and you can do what you wish with.
