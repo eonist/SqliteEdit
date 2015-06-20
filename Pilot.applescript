@@ -30,14 +30,14 @@ script MainDialog
 	property _last_selected_action : "Create"
 	--
 	on show()
-		if my MainDialog's get_db_file_path() = missing value then
+		if my MainDialog's get_db_file_path() = missing value then--assert if you need to show the config dialog
 			promt_config_dialog()
 		end if
 		set db_file_name to FileParser's file_name_by_url(my MainDialog's get_db_file_path())
 		set the_action to choose from list {"Create", "Read", "Update", "Delete"} with title "" with prompt "Actions:" default items {_last_selected_action} cancel button name "Exit"
 		handle_action_choice(the_action)
 	end show
-	--if the last used db file is non existing, then choose or create one
+	--if the last used db file is non existent, then choose or create one
 	on promt_config_dialog()
 		set the_choice to choose from list {"Choose database", "Create new database"} with title "" with prompt "Actions:" default items {"Choose database"} cancel button name "exit"
 		if the_choice is false then --exit
@@ -46,7 +46,7 @@ script MainDialog
 			set selected_item to item 1 of the_choice
 			set file_path to missing value
 			if selected_item = "Choose database" then
-				set file_path to SQLiteHelper's choose_database_file()
+				set file_path to SQLiteHelper's choose_database_file()--prompts a file browser dialog
 			else if selected_item = "Create new database" then
 				set file_path to SQLiteHelper's create_new_database()
 			end if
@@ -58,7 +58,7 @@ script MainDialog
 			end if
 		end if
 	end promt_config_dialog
-	--Handles action choice
+	--Handles the main menu action choices
 	on handle_action_choice(action)
 		log "handleActionChoice"
 		if action is false then --exit
@@ -81,11 +81,11 @@ script MainDialog
 			end if
 		end if
 	end handle_action_choice
-	--
+	--setter method
 	on set_db_file_path(db_file_path) --td move to global value
 		set _db_file_path to db_file_path
 	end set_db_file_path
-	--
+	--getter method
 	on get_db_file_path()
 		return _db_file_path
 	end get_db_file_path
@@ -112,7 +112,7 @@ script CreateDialog
 		set file_path to SQLiteHelper's create_new_database()
 		log file_path
 		--TODO some sort of promt witht he path + name of the newly created database
-		show()
+		show()--returns to the create menu
 	end create_database
 	--
 	on create_column()
@@ -120,7 +120,7 @@ script CreateDialog
 		set chosen_table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		set new_column_keys to promt_for_column_keys({})
 		SQLiteModifier's add_columns(_db_file_path, chosen_table_name, new_column_keys) --create the table
-		show()
+		show()--returns to the create menu
 	end create_column
 	--
 	--TODO this promt could be better if we did a while loop and has "another key", "done" and "cancel" as buttons
@@ -133,10 +133,10 @@ script CreateDialog
 		set new_column_keys to promt_for_column_keys({})
 		log "new_column_keys: " & new_column_keys
 		SQLiteModifier's create_table(_db_file_path, new_table_name, new_column_keys) --create the table
-		show()
+		show()--returns to the create menu
 	end create_table
-	--NOTE this method can be used to create new column keys and also update existing ones
-	--TODO maybe seperate creating new and updating old col_keys into two methods?
+	--NOTE this method can be used to create new column keys and also update existing ones, this mehod is an utility method
+	--TODO maybe seperate creating new and updating old col_keys into two methods?, move method into utility class
 	on promt_for_column_keys(column_keys)
 		log "promt_for_column_keys()"
 		set ordinal to TextParser's ordinal((length of column_keys) + 1) --first, second, third, fourth etc
@@ -235,7 +235,7 @@ script ReadDialog
 		log "read_table() "
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()
+			show()--returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -259,7 +259,7 @@ script ReadDialog
 		log "read_column_keys() "
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()
+			show()--returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -275,7 +275,7 @@ script ReadDialog
 		log "read_row() "
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()
+			show()--returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -300,7 +300,7 @@ script ReadDialog
 		log "read_row_value()"
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()
+			show()--returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -368,7 +368,7 @@ script UpdateDialog
 		set ret_val to display dialog "Table name:" default answer chosen_table_name with title "Update table name:" buttons {"Ok"} default button "Ok"
 		set new_table_name to text returned of ret_val
 		SQLiteModifier's rename_table(_db_file_path, chosen_table_name, new_table_name)
-		show()
+		show()--returns to the update menu
 	end update_table_name
 	--
 	on update_column_keys()
@@ -377,7 +377,7 @@ script UpdateDialog
 		set chosen_column_keys to SQLiteHelper's choose_column_keys(_db_file_path, chosen_table_name)
 		set new_column_keys to edit_column_keys(chosen_column_keys, {})
 		SQLiteModifier's rename_columns(_db_file_path, chosen_table_name, chosen_column_keys, new_column_keys)
-		show()
+		show()--returns to the update menu
 	end update_column_keys
 	--
 	on edit_column_keys(old_column_keys, new_column_keys)
@@ -465,7 +465,7 @@ script UpdateDialog
 		set row_id to SQLiteHelper's row_id(chosen_row)
 		log "row_id: " & row_id
 		SQLiteModifier's update_rows(_db_file_path, chosen_table_name, {{"_rowid_", row_id}}, the_input)
-		show()
+		show()--returns to the update menu
 	end update_row_values
 	--
 	on swap_columns()
@@ -476,7 +476,7 @@ script UpdateDialog
 		set column_key_B to SQLiteHelper's choose_column_key(_db_file_path, chosen_table_name)
 		log "column_key_B: " & column_key_B
 		SQLiteModifier's swap_columns(_db_file_path, chosen_table_name, column_key_A, column_key_B)
-		show()
+		show()--returns to the update menu
 	end swap_columns
 	--handle update actions
 	--TODO create methods for each if clause
@@ -502,7 +502,7 @@ script DeleteDialog
 		set the_selection to choose from list {"Database", "Table", "Columns", "Row"} with title "" with prompt "Delete:" default items _last_selected_action cancel button name "back"
 		if the_selection is false then --aka user canceled
 			--error number -128 -- User canceled
-			my MainDialog's show()
+			my MainDialog's show()--returns to the delete menu
 		else
 			set selected_action to item 1 of the_selection
 			log "selected_action: " & selected_action
@@ -514,20 +514,20 @@ script DeleteDialog
 		set db_file_path to SQLiteHelper's choose_database_file() --select the database
 		log "db_file_path: " & db_file_path
 		FileModifier's delete_file(POSIX file db_file_path as alias)
-		show()
+		show()--returns to the delete menu
 	end delete_database
 	--
 	on delete_table()
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		SQLiteModifier's remove_table(_db_file_path, table_name)
-		show()
+		show()--returns to the delete menu
 	end delete_table
 	--
 	on delete_column()
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		set column_keys to SQLiteHelper's choose_column_keys(_db_file_path, table_name)
 		SQLiteModifier's remove_columns(_db_file_path, table_name, column_keys) --call the sql remove columns method, 
-		show()
+		show()--returns to the delete menu
 	end delete_column
 	--
 	on delete_row()
@@ -539,7 +539,7 @@ script DeleteDialog
 			log "row_id: " & row_id
 			SQLiteModifier's remove_row(_db_file_path, table_name, {{"_rowid_", row_id}})
 		end repeat
-		show()
+		show()--returns to the delete menu
 	end delete_row
 	--
 	on handle_delete_action(selected_action)
@@ -557,6 +557,7 @@ script DeleteDialog
 	end handle_delete_action
 end script
 
+-- remove this:
 --else if _selectedAction = "Update column key" then
 --				log "error del this line"
 --SQLiteModifier's renameColumns(_dbFilePath, _selectedTableName, _selectedColumnKeys, _columnKeys)
