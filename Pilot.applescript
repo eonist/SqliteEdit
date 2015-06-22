@@ -1,12 +1,14 @@
-property SQLiteParser : load script alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteParser.scpt")
-property SQLiteModifier : load script alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteModifier.scpt")
-property SQLiteUtil : load script alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteUtil.scpt")
-property SQLiteHelper : load script alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteHelper.scpt")
-property ListParser : load script alias ((path to scripts folder from user domain as text) & "list:ListParser.scpt")
-property ListModifier : load script alias ((path to scripts folder from user domain as text) & "list:ListModifier.scpt")
-property FileModifier : load script alias ((path to scripts folder from user domain as text) & "file:FileModifier.scpt")
-property FileParser : load script alias ((path to scripts folder from user domain as text) & "file:FileParser.scpt")
-property TextParser : load script alias ((path to scripts folder from user domain as text) & "text:TextParser.scpt")
+property ScriptLoader : load script alias ((path to scripts folder from user domain as text) & "file:ScriptLoader.scpt") --prerequisite for loading .applescript files
+property SQLiteParser : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteParser.applescript"))
+property SQLiteModifier : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteModifier.applescript"))
+property SQLiteUtil : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteUtil.applescript"))
+property SQLiteHelper : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "sqlite:SQLiteHelper.applescript"))
+property ListParser : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "list:ListParser.applescript"))
+property ListModifier : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "list:ListModifier.applescript"))
+property FileModifier : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "file:FileModifier.applescript"))
+property FileParser : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "file:FileParser.applescript"))
+property TextParser : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "text:TextParser.applescript"))
+--
 --
 property _db_file_path : missing value --POSIX path of (alias ((path to sites folder from user domain as text) & "database.db")) --missing value---- --this value should be missing value, but its hardcoded for now--TODO rename to _selectedDBFilePath
 
@@ -30,7 +32,7 @@ script MainDialog
 	property _last_selected_action : "Create"
 	--
 	on show()
-		if my MainDialog's get_db_file_path() = missing value then--assert if you need to show the config dialog
+		if my MainDialog's get_db_file_path() = missing value then --assert if you need to show the config dialog
 			promt_config_dialog()
 		end if
 		set db_file_name to FileParser's file_name_by_url(my MainDialog's get_db_file_path())
@@ -46,7 +48,7 @@ script MainDialog
 			set selected_item to item 1 of the_choice
 			set file_path to missing value
 			if selected_item = "Choose database" then
-				set file_path to SQLiteHelper's choose_database_file()--prompts a file browser dialog
+				set file_path to SQLiteHelper's choose_database_file() --prompts a file browser dialog
 			else if selected_item = "Create new database" then
 				set file_path to SQLiteHelper's create_new_database()
 			end if
@@ -112,7 +114,7 @@ script CreateDialog
 		set file_path to SQLiteHelper's create_new_database()
 		log file_path
 		--TODO some sort of promt witht he path + name of the newly created database
-		show()--returns to the create menu
+		show() --returns to the create menu
 	end create_database
 	--
 	on create_column()
@@ -120,7 +122,7 @@ script CreateDialog
 		set chosen_table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		set new_column_keys to promt_for_column_keys({})
 		SQLiteModifier's add_columns(_db_file_path, chosen_table_name, new_column_keys) --create the table
-		show()--returns to the create menu
+		show() --returns to the create menu
 	end create_column
 	--
 	--TODO this promt could be better if we did a while loop and has "another key", "done" and "cancel" as buttons
@@ -133,7 +135,7 @@ script CreateDialog
 		set new_column_keys to promt_for_column_keys({})
 		log "new_column_keys: " & new_column_keys
 		SQLiteModifier's create_table(_db_file_path, new_table_name, new_column_keys) --create the table
-		show()--returns to the create menu
+		show() --returns to the create menu
 	end create_table
 	--NOTE this method can be used to create new column keys and also update existing ones, this mehod is an utility method
 	--TODO maybe seperate creating new and updating old col_keys into two methods?, move method into utility class
@@ -235,7 +237,7 @@ script ReadDialog
 		log "read_table() "
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()--returns to the read menu
+			show() --returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -259,7 +261,7 @@ script ReadDialog
 		log "read_column_keys() "
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()--returns to the read menu
+			show() --returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -275,7 +277,7 @@ script ReadDialog
 		log "read_row() "
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()--returns to the read menu
+			show() --returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -300,7 +302,7 @@ script ReadDialog
 		log "read_row_value()"
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		if table_name = missing value then
-			show()--returns to the read menu
+			show() --returns to the read menu
 			return
 		end if
 		log "table_name: " & table_name
@@ -368,7 +370,7 @@ script UpdateDialog
 		set ret_val to display dialog "Table name:" default answer chosen_table_name with title "Update table name:" buttons {"Ok"} default button "Ok"
 		set new_table_name to text returned of ret_val
 		SQLiteModifier's rename_table(_db_file_path, chosen_table_name, new_table_name)
-		show()--returns to the update menu
+		show() --returns to the update menu
 	end update_table_name
 	--
 	on update_column_keys()
@@ -377,7 +379,7 @@ script UpdateDialog
 		set chosen_column_keys to SQLiteHelper's choose_column_keys(_db_file_path, chosen_table_name)
 		set new_column_keys to edit_column_keys(chosen_column_keys, {})
 		SQLiteModifier's rename_columns(_db_file_path, chosen_table_name, chosen_column_keys, new_column_keys)
-		show()--returns to the update menu
+		show() --returns to the update menu
 	end update_column_keys
 	--
 	on edit_column_keys(old_column_keys, new_column_keys)
@@ -465,7 +467,7 @@ script UpdateDialog
 		set row_id to SQLiteHelper's row_id(chosen_row)
 		log "row_id: " & row_id
 		SQLiteModifier's update_rows(_db_file_path, chosen_table_name, {{"_rowid_", row_id}}, the_input)
-		show()--returns to the update menu
+		show() --returns to the update menu
 	end update_row_values
 	--
 	on swap_columns()
@@ -476,7 +478,7 @@ script UpdateDialog
 		set column_key_B to SQLiteHelper's choose_column_key(_db_file_path, chosen_table_name)
 		log "column_key_B: " & column_key_B
 		SQLiteModifier's swap_columns(_db_file_path, chosen_table_name, column_key_A, column_key_B)
-		show()--returns to the update menu
+		show() --returns to the update menu
 	end swap_columns
 	--handle update actions
 	--TODO create methods for each if clause
@@ -502,7 +504,7 @@ script DeleteDialog
 		set the_selection to choose from list {"Database", "Table", "Columns", "Row"} with title "" with prompt "Delete:" default items _last_selected_action cancel button name "back"
 		if the_selection is false then --aka user canceled
 			--error number -128 -- User canceled
-			my MainDialog's show()--returns to the delete menu
+			my MainDialog's show() --returns to the delete menu
 		else
 			set selected_action to item 1 of the_selection
 			log "selected_action: " & selected_action
@@ -514,20 +516,20 @@ script DeleteDialog
 		set db_file_path to SQLiteHelper's choose_database_file() --select the database
 		log "db_file_path: " & db_file_path
 		FileModifier's delete_file(POSIX file db_file_path as alias)
-		show()--returns to the delete menu
+		show() --returns to the delete menu
 	end delete_database
 	--
 	on delete_table()
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		SQLiteModifier's remove_table(_db_file_path, table_name)
-		show()--returns to the delete menu
+		show() --returns to the delete menu
 	end delete_table
 	--
 	on delete_column()
 		set table_name to SQLiteHelper's choose_table_name(_db_file_path)
 		set column_keys to SQLiteHelper's choose_column_keys(_db_file_path, table_name)
 		SQLiteModifier's remove_columns(_db_file_path, table_name, column_keys) --call the sql remove columns method, 
-		show()--returns to the delete menu
+		show() --returns to the delete menu
 	end delete_column
 	--
 	on delete_row()
@@ -539,7 +541,7 @@ script DeleteDialog
 			log "row_id: " & row_id
 			SQLiteModifier's remove_row(_db_file_path, table_name, {{"_rowid_", row_id}})
 		end repeat
-		show()--returns to the delete menu
+		show() --returns to the delete menu
 	end delete_row
 	--
 	on handle_delete_action(selected_action)
