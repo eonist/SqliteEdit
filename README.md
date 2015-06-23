@@ -1,7 +1,7 @@
 # NanoCMS
 
 ### What is NanoCMS:
-Piliot is a very simple .application that can read and edit SQLite database files (.db) in a wizard like dialog
+NanoCMS is a very simple .application that can read and edit SQLite database files (.db) in a wizard like dialog
 
 ### How it works:
 1. You drag and drop a .db file onto the app and then you select the action you want to perform on the .db file. (create, read, update or delete)
