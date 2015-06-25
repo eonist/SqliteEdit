@@ -92,7 +92,7 @@ script MainDialog
 		return _db_file_path
 	end get_db_file_path
 end script
---
+--Promts the Create dialog
 script CreateDialog
 	property _last_selected_action : "Database"
 	on show()
@@ -205,7 +205,7 @@ script CreateDialog
 		end if
 	end handle_create_action
 end script
---
+--Promts the Read dialog
 --TODO we should have 2 methods one named read row which would just display the entire row, and one for reading a row value
 script ReadDialog
 	property _last_selected_action : "Database"
@@ -348,7 +348,7 @@ script ReadDialog
 		end if
 	end handle_read_action
 end script
---
+--Promts the Update menu dialog
 script UpdateDialog
 	property _last_selected_action : "Table name"
 	on show()
@@ -496,7 +496,7 @@ script UpdateDialog
 		end if
 	end handle_update_action
 end script
---
+--Promts the delete menu dialog
 script DeleteDialog
 	property _last_selected_action : "Database"
 	on show()
