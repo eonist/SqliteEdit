@@ -11,7 +11,7 @@ property TextParser : my ScriptLoader's load_script(alias ((path to scripts fold
 --Todo: separate the dialogs into their own files
 
 property _db_file_path : missing value --POSIX path of (alias ((path to sites folder from user domain as text) & "database.db")) --missing value---- --this value should be missing value, but its hardcoded for now--TODO rename to _selectedDBFilePath
-
+--
 on open file_list
 	log "open()"
 	set first_file to (first item in file_list)
