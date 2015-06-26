@@ -11,7 +11,7 @@ property TextParser : my ScriptLoader's load_script(alias ((path to scripts fold
 --Todo: separate the dialogs into their own files
 
 property _db_file_path : missing value --POSIX path of (alias ((path to sites folder from user domain as text) & "database.db")) --missing value---- --this value should be missing value, but its hardcoded for now--TODO rename to _selectedDBFilePath
---
+--this method is automatically called when you start the app, test this
 on open file_list
 	log "open()"
 	set first_file to (first item in file_list)
@@ -25,12 +25,12 @@ on open file_list
 	end if
 end open
 
-MainDialog's show()
-
+MainDialog's show()--init's the app
+--
 script MainDialog
 	log "MainDialog()"
 	property _last_selected_action : "Create"
-	--
+	--This is the first promt dialog starts on the init of the app, if a previous .db file was opened and still exists this file will be used, i not then you get the choice between creating a new .db file or browsing for a .db file in your file system
 	on show()
 		if my MainDialog's get_db_file_path() = missing value then --assert if you need to show the config dialog
 			promt_config_dialog()
@@ -209,7 +209,7 @@ end script
 --TODO we should have 2 methods one named read row which would just display the entire row, and one for reading a row value
 script ReadDialog
 	property _last_selected_action : "Database"
-	--Display list of actions
+	--Promts a list of actions
 	on show()
 		log "displayReadActions() "
 		set the_selection to choose from list {"Database", "Table", "Columns", "Row", "Value"} with title "" with prompt "Read:" default items {_last_selected_action} cancel button name "back"
