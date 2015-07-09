@@ -17,4 +17,5 @@ NanoCMS is a very simple app that can read and edit SQLite database files (.db) 
 - More NanoWebsite css themes and NanoWebsite php frameworks (also for mobile)
 
 Website: [eonist.github.io/NanoCMS](http://eonist.github.io/NanoCMS/)
+
 Author (link to Author)
