@@ -1,4 +1,4 @@
-# NanoCMS (website)
+# NanoCMS
 
 ### Introduction:
 NanoCMS is a very simple app that can read and edit SQLite database files (.db) in a straight forward wizard dialogs.
