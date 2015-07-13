@@ -1,7 +1,7 @@
 # NanoCMS
 
 ### Introduction:
-NanoCMS is a very simple app that can read and edit SQLite database files (.db) in a straight forward wizard dialogs.
+NanoCMS is a very simple app that can read and edit SQLite database files (.db) in straight forward wizard dialogs.
 
 ### Features:
 - Read, Write, Delete and Edit SQLite3 (.db) files
