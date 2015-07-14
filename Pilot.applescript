@@ -137,8 +137,10 @@ script CreateDialog
 		SQLiteModifier's create_table(_db_file_path, new_table_name, new_column_keys) --create the table
 		show() --returns to the create menu
 	end create_table
-	--NOTE this method can be used to create new column keys and also update existing ones, this mehod is an utility method
-	--TODO maybe seperate creating new and updating old col_keys into two methods?, move method into utility class
+	(*
+	 * NOTE this method can be used to create new column keys and also update existing ones, this mehod is an utility method
+    * TODO maybe seperate creating new and updating old col_keys into two methods?, move method into utility class
+	 *)
 	on promt_for_column_keys(column_keys)
 		log "promt_for_column_keys()"
 		set ordinal to TextParser's ordinal((length of column_keys) + 1) --first, second, third, fourth etc
