@@ -1,0 +1,193 @@
+@import url("reset.css");
+/*@import url("debug.css");*/
+
+body {
+	font-size: 62.5%;
+	background-color: white;
+  	margin:0px;
+	overflow: auto;
+}
+
+/* Layout */
+
+#mastHead {
+	width:100%;
+}
+
+#navigation {
+	position: absolute;
+	width: 130px;
+	left: 62px;
+	margin-top: 64px;
+	top: 0;
+}
+#content {
+	margin-left: 244px;
+	margin-top: 64px;
+	width: 65%;
+	float: none;
+	clear: none;
+}
+#news_article, #project_item{
+	margin-right: 20;
+	margin-left: 0px;
+	margin-bottom: 4em;
+}
+#news_article #date_created{
+	letter-spacing: 0;
+	font: 1.2em "Courier New", Courier, mono;
+	display: none;
+}
+#news_article p, #project_item p{
+	margin: 16px 0 16px 0px;
+}
+#news_article h1 a, #project_item h1 a{	
+	text-decoration: none;
+	font-size: 1.0em;
+	color: black;
+	
+}
+#news_article h1 a:hover, #project_item h1 a:hover{
+	text-decoration: underline;
+	font-size: 1.0em;
+}
+#main {
+	
+}
+
+#secondary {
+	
+}
+
+#footer {
+	width:100%;
+	clear: both;
+}
+#content #section{
+	margin-top: 80px;
+}
+
+#content #sectionLink {
+	margin-top: 32px;
+}
+/* Text and semantic structure */
+
+p {
+	color: black;
+	font: 1.2em "Courier New", Courier, mono;
+	
+}
+
+h1, h2, h3, h4, h5, h6 {
+	
+}
+
+h1 {
+	font: 1.2em "Courier New", Courier, mono;
+	
+}
+
+h2 {
+	
+}
+
+hr {
+	
+}
+
+br {
+	clear: both;
+}
+
+strong {
+	font-weight: bold;
+}
+
+/* Links */
+
+a {
+	text-decoration: none;
+	font-family: "Courier New", Courier, mono;
+}
+
+a:hover {
+	
+}
+
+#content a{
+	text-decoration: none;
+	font-size: 1.2em;
+	color: black;
+}
+#content a:hover{
+	text-decoration: underline;
+	font-size: 1.2em;
+}
+
+/* Images */
+
+.imageContainer {
+	
+}
+
+.imageContainer img {
+	
+}
+
+a img {
+	
+}
+
+.imageContainer .caption {
+	
+}
+
+/* Navigation */
+
+#navigation ul {
+	
+}
+
+#navigation ul li {
+	letter-spacing: 0;
+	font: 1.2em "Courier New", Courier, mono;
+	margin: 0 0 16px ;
+}
+
+#navigation ul li ul {
+	
+}
+
+#navigation ul li ul li {
+	
+}
+
+#navigation li a{
+	color: black;
+	display: block;
+	padding: 0 0.5em 0 0;
+}
+#navigation ul li.current a, #navigation ul li a:hover {
+	color: black;
+	text-decoration: underline;
+}
+#navigation ul li a:active {
+	background-color:transparent;
+	color:#000;
+}
+/* Easyclearing method from positioniseverything [modified] */
+.clearfix:after {
+	content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}

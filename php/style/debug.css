@@ -1,0 +1,68 @@
+#pageContainer {
+	background-color: lightgoldenrodyellow;
+}
+
+body {
+	background-color: lightgrey;
+}
+
+#mastHead {
+	background-color: pink;
+}
+
+#navigation {
+	background-color: palegoldenrod;
+}
+
+#navigation ul {
+	background-color: lightgreen;
+}
+
+#navigation ul li {
+	background-color: greenyellow;
+
+}
+
+#navigation ul li ul li {
+	background-color: yellow;
+}
+
+#content {
+	background-color: lightsalmon;
+}
+
+#main {
+	background-color: rosybrown;
+}
+
+#secondary {
+	background-color: darkorange;
+}
+
+#footer {
+	background-color: #e2f0ff;
+}
+
+.imageContainer {
+	background-color: tan;
+}
+
+p {
+	background-color: aqua;
+}
+
+h1 {
+	background-color: tomato;
+}
+
+h2 {
+	background-color: rosybrown;
+}
+
+h3 {
+	background-color: firebrick;
+}
+
+dl {
+	background-color: teal;
+}
