@@ -11,8 +11,8 @@ NanoCMS is a very simple app that can edit SQLite database files in straight for
 - Tiny footprint only 0.25mb
 
 ### Future ideas:
-- IOS companion app
-- More NanoWebsite css themes and NanoWebsite php frameworks (also for mobile)
+- [ ] IOS companion app
+- [x] More NanoWebsite css themes and NanoWebsite php frameworks (also for mobile)
 
 Website: [eonist.github.io/NanoCMS](http://eonist.github.io/NanoCMS/) <Br>
 Author: [https://github.com/eonist](https://github.com/eonist)
