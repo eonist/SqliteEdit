@@ -15,3 +15,9 @@ id  | first-name | last-name | title | age
 2  | Michael | Smiht | Analyst | 33
 
 Update --> Row value --> Choose row --> Choose value --> "Smith"
+Update --> Swap row --> Choose row "title" --> Choose row "age"
+
+id  | first-name | last-name | age | title
+--- | ---------- | ----------| --- | -----
+1  | Oliver | Knight | 25 | Quant
+2  | Michael | Smith | 33 | Analyst
