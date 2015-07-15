@@ -1,5 +1,3 @@
-# NanoCMS
-
 ### Introduction:
 NanoCMS is a very simple OSX app that can edit SQLite database's
 
