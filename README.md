@@ -13,7 +13,7 @@ id  | first-name | last-name | title | age
 2  | Michael | Smiht | Analyst | 33
 
 Update --> Row value --> Choose row --> Choose value --> "Smith"<br>
-Update --> Swap row --> Swap from: "title" --> Swap to: "age"
+Update --> Swap column --> Swap from: "title" --> Swap to: "age"
 
 id  | first-name | last-name | age | title
 --- | ---------- | ----------| --- | -----
