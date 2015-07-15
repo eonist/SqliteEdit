@@ -1,7 +1,7 @@
 # NanoCMS
 
 ### Introduction:
-NanoCMS is a very simple app that can edit SQLite database's
+NanoCMS is a very simple Mac app that can edit SQLite database's
 
 ### Features:
 - Free and OpenSource
