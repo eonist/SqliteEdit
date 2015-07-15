@@ -15,7 +15,7 @@ id  | first-name | last-name | title | age
 2  | Michael | Smiht | Analyst | 33
 
 Update --> Row value --> Choose row --> Choose value --> "Smith"<br>
-Update --> Swap row --> Choose row "title" --> Choose row "age"
+Update --> Swap row --> Swap from: "title" --> Swap to: "age"
 
 id  | first-name | last-name | age | title
 --- | ---------- | ----------| --- | -----
