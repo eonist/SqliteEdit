@@ -10,7 +10,7 @@ NanoCMS is a very simple app that can edit SQLite database files in straight for
 - 100% hack Proof
 - Tiny footprint only 0.25mb
 
-### Future ideas:
+### Todo's:
 - [ ] IOS companion app
 - [x] More NanoWebsite css themes and NanoWebsite php frameworks (also for mobile)
 
