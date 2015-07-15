@@ -5,7 +5,7 @@ NanoCMS is a very simple app that can read and edit SQLite database files (.db) 
 
 ### Features:
 - Edit SQLite3 database files
-- Inspect and compile the app itself from Plain text source files on your Mac
+- Inspect and compile the app itself from raw text files on your Mac
 - Free and OpenSource (Github)
 - 100% hack Proof
 - Tiny footprint only 0.25mb
