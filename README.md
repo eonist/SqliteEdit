@@ -1,11 +1,10 @@
 # NanoCMS
 
 ### Introduction:
-NanoCMS is a very simple app that can edit SQLite database files in straight forward wizard dialogs.
+NanoCMS is a very simple app that can edit SQLite database's
 
 ### Features:
-- Edit SQLite3 database files
-- Compile the app itself from text files
+- OSX 10.5 and up
 - Free and OpenSource (Github)
 - 100% hack Proof
 - Tiny footprint only 0.25mb
