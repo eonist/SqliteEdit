@@ -4,10 +4,9 @@
 NanoCMS is a very simple app that can edit SQLite database's
 
 ### Features:
-- OSX 10.5++
 - Free and OpenSource
-- 100% hack Proof
 - Tiny footprint only 0.25mb
+- 100% hack Proof
 
 ### Example:
 id  | first-name | last-name | title | age
