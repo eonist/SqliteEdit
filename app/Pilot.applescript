@@ -9,7 +9,7 @@ property FileModifier : my ScriptLoader's load_script(alias ((path to scripts fo
 property FileParser : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "file:FileParser.applescript"))
 property TextParser : my ScriptLoader's load_script(alias ((path to scripts folder from user domain as text) & "text:TextParser.applescript"))
 --Todo: separate the dialogs into their own files
-
+--Todo: move some of the utility methods into an utility class in this doc
 property _db_file_path : missing value --POSIX path of (alias ((path to sites folder from user domain as text) & "database.db")) --missing value---- --this value should be missing value, but its hardcoded for now--TODO rename to _selectedDBFilePath
 --this method is automatically called when you start the app, test this
 on open file_list
@@ -26,7 +26,9 @@ on open file_list
 end open
 
 MainDialog's show()--init's the app
---
+(*
+ * the main dialog
+ *)
 script MainDialog
 	log "MainDialog()"
 	property _last_selected_action : "Create"
@@ -92,7 +94,9 @@ script MainDialog
 		return _db_file_path
 	end get_db_file_path
 end script
---Promts the Create dialog
+(*
+ * Promts the Create dialog
+ *)
 script CreateDialog
 	property _last_selected_action : "Database"
 	on show()
@@ -207,8 +211,10 @@ script CreateDialog
 		end if
 	end handle_create_action
 end script
---Promts the Read dialog
---TODO we should have 2 methods one named read row which would just display the entire row, and one for reading a row value
+(*
+ * Promts the Read dialog
+ * TODO we should have 2 methods one named read row which would just display the entire row, and one for reading a row value
+ *)
 script ReadDialog
 	property _last_selected_action : "Database"
 	--Promts a list of actions
@@ -350,7 +356,9 @@ script ReadDialog
 		end if
 	end handle_read_action
 end script
---Promts the Update menu dialog
+(*
+ * Promts the Update menu dialog
+ *)
 script UpdateDialog
 	property _last_selected_action : "Table name"
 	on show()
@@ -498,7 +506,9 @@ script UpdateDialog
 		end if
 	end handle_update_action
 end script
---Promts the delete menu dialog
+(*
+ * Promts the delete menu dialog
+ *)
 script DeleteDialog
 	property _last_selected_action : "Database"
 	on show()
