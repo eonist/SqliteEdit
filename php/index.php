@@ -4,10 +4,11 @@ include_once'includes/Utils.inc';
 $page_titles = array("projects","news","about","contact");//the sub pages for the domain (i.e: www.domain.com/news/2/)
 
 //echo $_SERVER['REQUEST_URI'],"<BR>";
-//Note: This method takes care of the dynamic URL from the adressbar input
-//Note: the switch takes care of the first item after the domain handle (i.e: www.domain.com/news/)
-//Note: the subsequent if else statements take care of article subsub pages (i.e: www.domain.com/news/2/)
-//todo: add the bellow in an external php class nambeduURIHandeler.inc
+/* This method takes care of the dynamic URL from the adressbar input
+ * Note: the switch takes care of the first item after the domain handle (i.e: www.domain.com/news/)
+ * Note: the subsequent if else statements take care of article subsub pages (i.e: www.domain.com/news/2/)
+ * todo: add the bellow in an external php class nambeduURIHandeler.inc
+ */
 preg_match_all("/(?<=\/)[^\/]+?(?=(\/|\$))/", $_SERVER['REQUEST_URI'],$matches);/*seperates the items in the URI*/
 if(sizeof($matches[0]) > 0){/*assert if there is anything in the matches array*/
 //	echo "an item was found","<BR>";
@@ -56,8 +57,10 @@ if(sizeof($matches[0]) > 0){/*assert if there is anything in the matches array*/
 
 echo $dom_doc->saveHTML();//outputs the html
 
-//Note: this is the mockup of how thos document works, can be deleted in the future
-//note you should only have 1 index.php doc that controls everything
+/* 
+ * This is the mockup of how the document works, can be deleted in the future
+ * Note: you should only have 1 index.php doc that controls everything
+ */
 //get the first item, it should be news, contact, projects, about, load the apropriate page html
 	//if the first item is empty, then your at the front page so load the front html
 //if your  URI is /project/first-project/

@@ -9,9 +9,9 @@ include_once'dom/DOMModifier.inc';
 include_once'Page.inc';
 class Utils{//this entire class is project specific
 	/*
-	* Returns a html structure with body,mast_head and navigation
-	* @Note: this is a project specific method
-	*/
+	 * Returns a html structure with body,mast_head and navigation
+	 * @Note: this is a project specific method
+	 */
 	static public function dom_doc($title){
 		$dom_doc = DOMParser::html($title);
 		$body_element = DOMParser::body_element($dom_doc);
@@ -26,9 +26,9 @@ class Utils{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Returns a html navigation element
-	* @Note: this is a project specific method
-	*/
+	 * Returns a html navigation element
+	 * @Note: this is a project specific method
+	 */
 	static public function navigation($dom_doc){
 		$body_element = DOMParser::body_element($dom_doc);
 		$navigation_element = DOMParser::dom_node_by_name_and_attribute($body_element,"div","id","navigation");
@@ -39,7 +39,6 @@ class Utils{//this entire class is project specific
 			$ul_element->appendChild($link_element);
 		}
 		/*set current list link in nav to bold*/
-		
 		if(ArrayAsserter::any(basename(getcwd()),$menu_titles)){/*emphasize only pages that are in the menu*/
 			DOMModifier::emphasize_list_link($dom_doc,ucfirst(basename(getcwd())));/*derive Contact from the document name then uppercase etc*/
 		}

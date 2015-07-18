@@ -1,9 +1,9 @@
 <?php 
 class Page{//this entire class is project specific
 	/*
-	* Returns a barebone full website html structure populated with some test text
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns a barebone full website html structure populated with some test text
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function front(){
 		$dom_doc = Utils::dom_doc("Website");
 
@@ -18,9 +18,9 @@ class Page{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Returns the dom_doc populated with project items
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns the dom_doc populated with project items
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function projects(){
 		$dom_doc = Utils::dom_doc("Website - Projects");
 
@@ -36,9 +36,9 @@ class Page{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Returns a dom_doc populated with The About page content
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns a dom_doc populated with The About page content
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function about(){
 		$dom_doc = Utils::dom_doc("Website - About");
 
@@ -52,9 +52,9 @@ class Page{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Returns a dom_doc populated with The Contact page content
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns a dom_doc populated with The Contact page content
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function contact(){
 		$dom_doc = Utils::dom_doc("Website - Contact");
 
@@ -68,9 +68,9 @@ class Page{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Returns a dom doc populated with news articles
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns a dom doc populated with news articles
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function news($iteration){
 		$dom_doc = Utils::dom_doc("Website - News");
 		/*Content*/
@@ -100,10 +100,10 @@ class Page{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Return a div element with news element data, used in the news page overview
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	* TODO: make it private, or mark it private?
-	*/
+	 * Return a div element with news element data, used in the news page overview
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 * TODO: make it private, or mark it private?
+	 */
 	static public function news_article_element($dom_doc,$row,$is_preview){
 		$article_element = $dom_doc->createElement("div");//maybe use html5 article
 		$article_element->setAttribute("id", "news_article");
@@ -131,9 +131,9 @@ class Page{//this entire class is project specific
 		return $article_element;
 	}
 	/*
-	* Returns a full dom document populated with a single news_article div element
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns a full dom document populated with a single news_article div element
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function news_article($news_article_name){
 		$news_article_title = str_replace("-"," ", strtolower($news_article_name));//replaces the - with empty space
 		$row = SQLiteParser::row('database.db','news','title',$news_article_title);//store the row data object
@@ -149,9 +149,9 @@ class Page{//this entire class is project specific
 		return $dom_doc;
 	}
 	/*
-	* Return a div element with project element data, used in the project page overview
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Return a div element with project element data, used in the project page overview
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function project_item_element($dom_doc,$row,$is_preview){
 		$project_element = $dom_doc->createElement("div");
 		$project_element->setAttribute("id", "project_item");
@@ -174,9 +174,9 @@ class Page{//this entire class is project specific
 		return $project_element;
 	}
 	/*
-	* Returns a full dom document populated with a single project_item div element
-	* @Note: this is a project specific method, but could serve as future module for a framework
-	*/
+	 * Returns a full dom document populated with a single project_item div element
+	 * @Note: this is a project specific method, but could serve as future module for a framework
+	 */
 	static public function project_item($project_name){
 		$project_title = str_replace("-"," ", strtolower($project_name));
 		$row = SQLiteParser::row('database.db','projects','title',$project_title);
