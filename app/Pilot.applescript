@@ -25,7 +25,7 @@ on open file_list
 	end if
 end open
 
-MainDialog's show()--init's the app
+MainDialog's show() --init's the app
 (*
  * the main dialog
  *)
