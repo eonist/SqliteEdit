@@ -1,5 +1,5 @@
 ### Features:
-- Edits SQLite databases
+- Edit SQLite databases
 - Free and OpenSource
 - Tiny footprint (0.25mb)
 
