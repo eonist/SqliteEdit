@@ -18,6 +18,6 @@ id  | first-name | last-name | age | title
 2  | Michael | Smith | 33 | Analyst
 
 ###Todo's:
-- [ ] Create a responsive css template derived from http://bradfrost.com/blog/web/responsive-nav-patterns/
+- [ ] Create a responsive css template derived from [Link](http://bradfrost.com/blog/web/responsive-nav-patterns/)
 - [ ] Draw up a possible ios layout in illustrator
 - [ ] Create a 1.0 Release and add it to a download link
