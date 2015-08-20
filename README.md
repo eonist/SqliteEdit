@@ -21,3 +21,4 @@ id  | first-name | last-name | age | title
 - [ ] Create a responsive css template derived from [Link](http://bradfrost.com/blog/web/responsive-nav-patterns/)
 - [ ] Draw up a possible ios layout in illustrator
 - [ ] Create a 1.0 Release and add it to a download link
+- [ ] Simplify the source folder, add a .gitignore file
