@@ -19,6 +19,6 @@ id  | first-name | last-name | age | title
 
 ###Todo's:
 - [ ] Create a responsive css template derived from [Link](http://bradfrost.com/blog/web/responsive-nav-patterns/)
-- [ ] Draw up a possible ios layout in illustrator
+- [ ] Draw up a possible ios layout in ~~illustrator~~ Paper
 - [ ] Create a 1.0 Release and add it to a download link
 - [ ] Simplify the source folder, add a .gitignore file
