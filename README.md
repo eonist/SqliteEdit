@@ -1,3 +1,5 @@
+![screen](https://www.dropbox.com/s/zt6ev7gfz0fys15/Screen%20Shot%202014-11-07%20at%2020.40.15.png?dl=0) 
+
 ### Features:
 - Edit SQLite databases
 - Free and OpenSource
