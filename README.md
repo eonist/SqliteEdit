@@ -1,5 +1,4 @@
-<img width="320" alt="screen" src="https://www.dropbox.com/s/zt6ev7gfz0fys15/Screen%20Shot%202014-11-07%20at%2020.40.15.png?raw=1">
-
+<img width="320" alt="screen" src="https://www.dropbox.com/s/fqivsmf2s46q0qy/Screen%20Shot%202015-10-31%20at%2010.03.11.png?raw=1">
 ### Features:
 - Edit SQLite databases
 - Free and OpenSource
