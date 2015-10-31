@@ -1,7 +1,7 @@
 ![screen](https://www.dropbox.com/s/zt6ev7gfz0fys15/Screen%20Shot%202014-11-07%20at%2020.40.15.png?raw=1) 
 
 
-<img width="320" alt="Title" src="https://google.com/img.jpg">
+<img width="320" alt="Screen" src="https://www.dropbox.com/s/zt6ev7gfz0fys15/Screen%20Shot%202014-11-07%20at%2020.40.15.png?raw=1">
 
 ### Features:
 - Edit SQLite databases
