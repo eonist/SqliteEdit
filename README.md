@@ -1,4 +1,4 @@
-<img width="320" alt="screen" src="https://www.dropbox.com/s/fqivsmf2s46q0qy/Screen%20Shot%202015-10-31%20at%2010.03.11.png?raw=1">
+<img width="391" alt="screen" src="https://www.dropbox.com/s/6b90o04jys19jrs/Screen%20Shot%202015-10-31%20at%2010.05.38.png?raw=1">
 ### Features:
 - Edit SQLite databases
 - Free and OpenSource
@@ -18,7 +18,7 @@ id  | first-name | last-name | age | title
 1  | Oliver | Knight | 25 | Quant
 2  | Michael | Smith | 33 | Analyst
 
-###Todo's:
+### Todo's:
 - [ ] Create a responsive css template derived from [Link](http://bradfrost.com/blog/web/responsive-nav-patterns/)
 - [ ] Draw up a possible ios layout in ~~illustrator~~ Paper
 - [ ] Create a 1.0 Release and add it to a download link
