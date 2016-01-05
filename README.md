@@ -26,4 +26,4 @@ id  | first-name | last-name | age | title
 - [ ] Create a 1.0 Release and add it to a download link
 - [ ] Simplify the source folder, add a .gitignore file
 
-[License](http://opensource.org/licenses/MIT) 
+[MIT License](http://opensource.org/licenses/MIT) 
