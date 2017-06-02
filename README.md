@@ -1,4 +1,4 @@
-<img width="391" alt="screen" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2010.05.38.png">
+<img width="391" alt="screen" src="https://raw.githubusercontent.com/stylekit/img/master/Screen%20Shot%202015-10-31%20at%2010.05.38.png">
 
 
 ### Features:
